@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Food Industry</title>
+  <style>
+    body { margin: 0; font-family: system-ui, sans-serif; background: #111; color: #f5f5f5; }
+    .slide { display: none; height: 100vh; padding: 8vh 10vw; box-sizing: border-box; }
+    .slide.active { display: block; }
+    h1 { font-size: 3rem; margin: 0 0 1rem; }
+    h2 { font-size: 2rem; margin: 0 0 1rem; }
+    ul { font-size: 1.25rem; line-height: 1.7; }
+    .nav { position: fixed; bottom: 1.5rem; right: 1.5rem; font-size: 0.9rem; opacity: 0.6; }
+  </style>
+</head>
+<body>
+
+  <section class="slide active">
+    <h1>Food Industry</h1>
+    <p>An overview of production, distribution and consumption</p>
+  </section>
+
+  <section class="slide">
+    <h2>1. Industry Overview</h2>
+    <ul>
+      <li>Farming and primary production</li>
+      <li>Processing and manufacturing</li>
+      <li>Distribution and retail</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <h2>2. Key Players</h2>
+    <ul>
+      <li>Major producers and brands</li>
+      <li>Retail chains and e-commerce</li>
+      <li>Small and local producers</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <h2>3. Trends</h2>
+    <ul>
+      <li>Plant-based and alternative proteins</li>
+      <li>Supply-chain transparency</li>
+      <li>Direct-to-consumer models</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <h2>4. Challenges</h2>
+    <ul>
+      <li>Climate and resource pressure</li>
+      <li>Food waste and logistics</li>
+      <li>Regulation and labelling</li>
+    </ul>
+  </section>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let i = 0;
+    function show(n) {
+      slides[i].classList.remove('active');
+      i = (n + slides.length) % slides.length;
+      slides[i].classList.add('active');
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.key === ' ') show(i + 1);
+      if (e.key === 'ArrowLeft') show(i - 1);
+    });
+    document.addEventListener('click', () => show(i + 1));
+  </script>
+</body>
+</html>
